@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoInterpreter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Demo Interpreter" Height="768" Width="1024" WindowStartupLocation="CenterScreen" MinHeight="768" MinWidth="1024">
+    <Grid Name="MainGrid">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Height="40" VerticalAlignment="Top" Grid.Row="0">
+            <ToolBar DockPanel.Dock="Top" Background="LightGray">
+                <Button ToolTip="Open Grammar file" Click="OpenGrammar_Click" Name="Button_OpenGrammarFile_Button">
+                    <Button.Content>
+                        <Image Height="30" Width="30" Source="file-1.png"></Image>
+                    </Button.Content>
+                </Button>
+                <Button ToolTip="Run reduction" Click="RunReduction_Click" Name="Button_RunReduction">
+                    <Button.Content>
+                        <Image Height="30" Width="30" Source="27860 - end green last next play right.ico"></Image>
+                    </Button.Content>
+                </Button>
+                <Button ToolTip="Show Reduction tree" Click="ShowReduction_Click" Name="Button_ShowReductionTree">
+                    <Button.Content>
+                        <Image Height="30" Width="30" Source="map-19.png"></Image>
+                    </Button.Content>
+                </Button>
+                <Button ToolTip="Show return value" Click="ShowReturnValue_Click" Name="Button_ShowReturnValue">
+                    <Button.Content>
+                        <Image Height="30" Width="30" Source="list-3.png"></Image>
+                    </Button.Content>
+                </Button>
+            </ToolBar>
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Name="TextBox_Input"  Grid.Row="1" Grid.Column="1" FontSize="18.667" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Name="TextBox_Output" Grid.Row="3" Grid.Column="1" FontSize="18.667"></TextBox>
+        </Grid>
+
+        <Grid Grid.Row="2" Name="FooterGrid" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="RightFooterLabel" Grid.Column="1" VerticalContentAlignment="Center"></Label>
+            <Label Name="LeftFooterLabel" Grid.Column="0" VerticalContentAlignment="Center"></Label>
+        </Grid>
     </Grid>
 </Window>

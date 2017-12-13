@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GOLD Engine, Version=5.0.4337.25397, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\GOLD Engine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -61,6 +65,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GOLD_Logic\Enumerations.cs" />
+    <Compile Include="GOLD_Logic\Model\Classes\Expression.cs" />
+    <Compile Include="GOLD_Logic\Model\Classes\Factor.cs" />
+    <Compile Include="GOLD_Logic\Model\Classes\ProgramLine.cs" />
+    <Compile Include="GOLD_Logic\Model\Classes\SimpleExpression.cs" />
+    <Compile Include="GOLD_Logic\Model\Classes\Term.cs" />
+    <Compile Include="GOLD_Logic\Model\Context\Context.cs" />
+    <Compile Include="GOLD_Logic\Model\Interpreter\INonTerminals.cs" />
+    <Compile Include="GOLD_Logic\MyParser.cs" />
+    <Compile Include="GOLD_Logic\Reduction.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -91,6 +105,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="open_button_image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="file-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="map-19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="27860 - end green last next play right.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\GOLD Engine.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="list-3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

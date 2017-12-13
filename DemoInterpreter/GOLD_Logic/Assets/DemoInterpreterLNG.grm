@@ -1,0 +1,67 @@
+﻿! Welcome to GOLD Parser Builder 5.2
+! Demo Grammar for the presentation of my thesis
+! The Demo Grammar will be used by the Demo Interpreter
+
+"Name"    = 'Demo Interpreter'
+"Author"  = 'Sipos, István Krisztián'
+"Version" = '1.0'
+"About"   = 'This is a demo grammar for the presentation of my Thesis, what is a complex interpreter'
+
+"Case Sensitive" = False
+"Start Symbol"   = <Program>
+
+!---- Specials ----
+
+{String Ch 1} = {Printable} - ['']
+{String Ch 2} = {Printable} - ["]
+            
+<End> ::= NewLine
+
+!---- Terminals ----
+
+NumberLiteral = {Digit}+
+
+StringLiteral = ''   {String Ch 1}* ''
+              | '"'  {String Ch 2}* '"'
+              
+BooleanLiteral = True
+               | False
+               
+Id             = {Letter}{AlphaNumeric}*
+
+!---- Non terminals ----
+
+<Program> ::= <ProgramLine><End><Program>
+           |  <ProgramLine>
+           
+<ProgramLine> ::= <Expression>
+               
+<Expression> ::= <SimpleExpression> '='  <SimpleExpression>
+              |  <SimpleExpression> '==' <SimpleExpression>
+              |  <SimpleExpression> '!=' <SimpleExpression>
+              |  <SimpleExpression> '>'  <SimpleExpression>
+              |  <SimpleExpression> '<'  <SimpleExpression>
+              |  <SimpleExpression> '>=' <SimpleExpression>
+              |  <SimpleExpression> '<=' <SimpleExpression>
+              |  <SimpleExpression>
+              
+<SimpleExpression> ::= <SimpleExpression> '+'  <Term>
+                    |  <SimpleExpression> '-'  <Term>
+                    |  <SimpleExpression> '||' <Term>
+                    |  <Term>
+                    
+<Term> ::= <Term> '*'  <Factor>
+        |  <Term> '/'  <Factor>
+        |  <Term> '&&' <Factor>
+        |  <Factor>
+        
+<Factor> ::= '+' <Factor>
+          |  '-' <Factor>
+          |  '!' <Factor>
+          |  StringLiteral
+          |  NumberLiteral
+          |  BooleanLiteral
+          |  Id
+          |  '(' <Expression> ')'
+          
+
