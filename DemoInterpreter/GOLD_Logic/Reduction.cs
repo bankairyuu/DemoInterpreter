@@ -8,6 +8,6 @@ namespace DemoInterpreter.GOLD_Logic
 {
     class Reduction
     {
-        public object ReductionValue(GOLD.Reduction Root) => null;
+        public object ReductionValue(GOLD.Reduction Root) => Model.Context.Context.Execute(Enumerations.eEnumerations.ProgramLine, (GOLD.Reduction)Root[0].Data);
     }
 }

@@ -1,4 +1,4 @@
-﻿using DemoInterpreter.GOLD_Logic.Model.Interpreter;
+﻿using DemoInterpreter.GOLD_Logic.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
